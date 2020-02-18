@@ -37,8 +37,9 @@ function checkForMovement()
 end
 
 function love.draw()
-  
+  love.graphics.setBackgroundColor(1,1,1)
   drawTrail()
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(player.image, player.x, player.y, 0, 0.5, 0.5)
 
   checkForMovement()
