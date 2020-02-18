@@ -1,9 +1,21 @@
+package.path = package.path .. ';./objects/?.lua'
+require("src.objects.trail")
+
 function love.load()
   player = {
     x = love.graphics.getWidth() / 8,
     y = love.graphics.getHeight() / 2,
     image = love.graphics.newImage('assets/snelly.png')
   }
+end
+
+function love.update(dt)
+  incrementTimeForTrail(dt)
+  if (player.x ~= lastX or player.y ~= lastY) then
+    addTrail(player)
+    lastX = player.x
+    lastY = player.y
+  end
 end
 
 function checkForMovement()
@@ -25,7 +37,8 @@ function checkForMovement()
 end
 
 function love.draw()
-  love.graphics.setBackgroundColor(255, 255, 255)
+  
+  drawTrail()
   love.graphics.draw(player.image, player.x, player.y, 0, 0.5, 0.5)
 
   checkForMovement()

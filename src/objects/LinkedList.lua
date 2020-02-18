@@ -56,7 +56,10 @@ function LinkedList:pop()
 end
 
 function LinkedList:peek()
-  return self.head.data
+  if (self.head ~= nil) then
+    return self.head.data
+  end
+  return nil
 end
 
 function LinkedList:get(n)
