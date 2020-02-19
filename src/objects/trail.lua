@@ -13,7 +13,6 @@ function drawTrail()
 end
 
 function incrementTimeForTrail(dt)
-  local i = 0
   checkTrail()
   for trail in trails:iterator() do
     trail.time = trail.time - dt
