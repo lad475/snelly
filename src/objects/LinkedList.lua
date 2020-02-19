@@ -76,4 +76,16 @@ function LinkedList:get(n)
   end
 end
 
+function LinkedList:iterator()
+  local node = self.head
+  return function ()
+        if (node ~= nil) then
+           local currentData = node.data
+           node = node.next
+           return currentData
+        end
+      end
+end
+
+
 
