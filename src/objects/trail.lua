@@ -26,10 +26,10 @@ function checkTrail()
   end
 end
 
-function addTrail(player)
+function addTrail(body)
   trails:push{ 
-    x=player.x + 100 + math.random(-100, 50),
-    y=player.y + 175 + math.random(-15, 15),
+    x=body:getX() + 100 + math.random(-100, 50),
+    y=body:getY() + 175 + math.random(-15, 15),
     size=math.random(3, 10),
     time=4,
     color= {
